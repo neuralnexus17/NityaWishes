@@ -263,6 +263,40 @@ body{ overflow:hidden; }
 @media (max-width:560px){
   .polaroid{ width:40vw; } .wish-card{ width:80vw; } .stat-box{ width:40vw; }
 }
+
+/* LIGHT VIBRANT + ELEGANT THEME */
+:root{--gold:#f6b73c;--pink:#ff6f9f;--purple:#9b6cff;--deep:#49345f;--ink:#4a3d56}
+html,body{background:#fff7fb;color:var(--ink)}
+.scene{color:var(--ink)}
+.scene-continue{background:rgba(255,255,255,.72);border:1px solid rgba(155,108,255,.24);color:#5a466b;box-shadow:0 10px 30px rgba(120,78,150,.12)}
+.scene-continue:hover{background:rgba(255,255,255,.92);box-shadow:0 14px 35px rgba(120,78,150,.18)}
+#sceneNav .dot{background:rgba(112,83,135,.20);border-color:rgba(112,83,135,.30)}
+#sceneNav .dot.active{background:var(--pink);border-color:var(--pink);box-shadow:0 0 14px rgba(255,111,159,.42)}
+.chapter-heading{color:#674a78;text-shadow:0 5px 20px rgba(255,111,159,.20)}
+.chapter-sub{color:rgba(74,61,86,.66)}
+#lockScreen{background:radial-gradient(circle at 15% 15%,rgba(255,190,213,.92),transparent 32%),radial-gradient(circle at 85% 20%,rgba(202,184,255,.88),transparent 32%),radial-gradient(circle at 50% 90%,rgba(255,220,150,.82),transparent 36%),linear-gradient(135deg,#fff8fc,#f5efff 48%,#fff8e9)}
+#lockScreen::before{background-image:radial-gradient(3px 3px at 18% 24%,rgba(255,111,159,.42),transparent),radial-gradient(2px 2px at 72% 62%,rgba(155,108,255,.40),transparent),radial-gradient(2px 2px at 42% 78%,rgba(246,183,60,.42),transparent),radial-gradient(3px 3px at 86% 18%,rgba(102,205,194,.38),transparent)}
+.lock-card{background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 70px rgba(113,78,132,.20),inset 0 0 35px rgba(255,111,159,.06)}
+.lock-title{color:#65466f}.lock-sub{color:rgba(74,61,86,.62)}
+#lockPassword{background:rgba(255,255,255,.76);border-color:rgba(103,74,120,.20);color:#4a3d56}
+#lockHint{color:rgba(74,61,86,.58)}#lockError{color:#d05c78}
+#scene-intro,#scene-cake,#scene-wishes,#scene-gallery,#scene-stats,#scene-final{background:radial-gradient(circle at 10% 18%,rgba(255,194,216,.82),transparent 27%),radial-gradient(circle at 90% 20%,rgba(205,194,255,.82),transparent 29%),radial-gradient(circle at 50% 95%,rgba(255,227,169,.76),transparent 36%),linear-gradient(135deg,#fff8fc,#f5f1ff 55%,#fff9ed)}
+#introTypewriter,#finalMessage{color:#694a78;text-shadow:0 8px 28px rgba(255,111,159,.18)}
+#introSkip{color:rgba(74,61,86,.58);border-color:rgba(74,61,86,.20)}
+#introSkip:hover{color:#674a78;border-color:#674a78}
+.cake-tier{box-shadow:0 10px 24px rgba(100,70,100,.15) inset,0 14px 30px rgba(100,70,100,.14)}
+.cake-hint{color:rgba(74,61,86,.64)}#cakeMessage{color:#765080;text-shadow:0 8px 25px rgba(255,111,159,.18)}
+.wish-card,.stat-box{background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.88);box-shadow:0 14px 35px rgba(112,78,130,.12)}
+.wish-card p{color:rgba(74,61,86,.82)}
+.polaroid{box-shadow:0 18px 40px rgba(91,66,100,.18)}
+.polaroid-photo{background:linear-gradient(135deg,#f9d9e8,#ddd2ff)}
+.stat-box .num{color:#e58a3f;text-shadow:0 5px 18px rgba(246,183,60,.25)}.stat-box .lbl{color:rgba(74,61,86,.62)}
+#finalSub{color:rgba(74,61,86,.66)}
+.replay-btn,.music-toggle{background:rgba(255,255,255,.72);border-color:rgba(103,74,120,.20);color:#674a78;box-shadow:0 10px 28px rgba(112,78,130,.12)}
+.replay-btn:hover,.music-toggle:hover{background:rgba(255,255,255,.94);border-color:var(--pink)}
+#floatingEmojis{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+.floating-emoji{position:absolute;bottom:-70px;font-size:clamp(22px,3vw,38px);opacity:.55;filter:drop-shadow(0 7px 10px rgba(90,65,110,.12));animation:floatEmoji linear infinite;user-select:none}
+@keyframes floatEmoji{0%{transform:translate3d(0,0,0) rotate(-8deg) scale(.92);opacity:0}10%{opacity:.52}50%{transform:translate3d(var(--drift),-55vh,0) rotate(12deg) scale(1);opacity:.62}90%{opacity:.35}100%{transform:translate3d(calc(var(--drift) * -1),-115vh,0) rotate(-14deg) scale(1.05);opacity:0}}
 </style>
 </head>
 <body>
@@ -298,6 +332,11 @@ body{ overflow:hidden; }
   <div class="dot" data-scene="stats" title="Our Friendship"></div>
   <div class="dot" data-scene="final" title="Finale"></div>
 </div>
+
+
+  <div id="floatingEmojis" aria-hidden="true">
+    <span class="floating-emoji">💖</span><span class="floating-emoji">✨</span><span class="floating-emoji">🎀</span><span class="floating-emoji">🌸</span><span class="floating-emoji">🦋</span><span class="floating-emoji">🎈</span><span class="floating-emoji">💫</span><span class="floating-emoji">🌷</span><span class="floating-emoji">🥳</span><span class="floating-emoji">💝</span><span class="floating-emoji">🌟</span><span class="floating-emoji">🎉</span>
+  </div>
 
 <div id="app">
 
@@ -722,6 +761,16 @@ document.getElementById('replayBtn').addEventListener('click', ()=>{
   document.getElementById('cakeContinue').style.display = 'none';
   goToScene('cake');
 });
+
+(function initFloatingEmojis(){
+  document.querySelectorAll('#floatingEmojis .floating-emoji').forEach((emoji)=>{
+    emoji.style.left=(4+Math.random()*92)+'%';
+    emoji.style.animationDuration=(10+Math.random()*9)+'s';
+    emoji.style.animationDelay=(-Math.random()*12)+'s';
+    emoji.style.setProperty('--drift',(Math.random()*90-45)+'px');
+    emoji.style.fontSize=(22+Math.random()*18)+'px';
+  });
+})();
 </script>
 </body>
 </html>
